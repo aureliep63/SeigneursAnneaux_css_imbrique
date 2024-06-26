@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@700&family=Open+Sans:wght@400;700&display=swap');
+
+:root{
+    --w-lg: 1060px;
+    --titleFont:"Cormorant Unicase", serif;
+    --color: rgba(79,17,34);
+}
+/******* CSS Général *******/
+
+body{
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+}
+
+section{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+/******* Titre *******/
+h1, h2, h3 {
+    font-family: var(--titleFont);
+}
+@media (min-width: 768px) {
+    h1{
+        font-size: 2.5rem;
+    }
+}
+@media (min-width: 992px) {
+    h1{
+        font-size: 3.5rem;
+    }
+}
+
+/******* Classes globales *******/
+
+.container{
+    width: 90%;
+    @media (min-width: 992px) {
+        width: 80%;
+    }
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    font-family: var(--titleFont);
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    &:hover{
+        background-color: white;
+        color: var(--color);
+    }
+}
+
+/******* CSS par section *******/
+
+header{
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),
+       url("img/perso.jpeg");
+    background-size: cover;
+    background-position-y: center;
+    color: white;
+    padding: 20px 0;
+
+    nav{
+
+        ul{
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            @media (max-width:767px){
+                li:not(#logo){
+                    display: none;
+                }
+            }
+
+            a{
+                color: inherit;
+                text-decoration: none;
+                font-family: var(--titleFont);
+            }
+
+            img{
+                height: 100px;
+            }
+        }
+    }
+    .container div{
+        text-align: center;
+        margin: 100px 0 130px;
+    }
+}
+
+main{
+    #adventure{
+        text-align: center;
+
+        ol{
+            text-align: left;
+            list-style: none;
+            counter-reset: my-counter;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+             /*flex-direction: column;
+            align-items: center; */
+            @media (min-width: 768px) {
+                justify-content: space-between;
+             }
+            li{
+                counter-increment: my-counter;
+                 width: 80%;
+                 @media (min-width: 768px) {
+                    width: 30%;
+                 }
+                h3{
+                    position: relative;
+                    padding-left: 15px;
+                    margin: 30px 0;
+                    &::before{
+                        content: "0"counter(my-counter);
+                        position: absolute;
+                        font-family: var(--titleFont);
+                        font-size: 4rem;
+                        top:-15px;
+                        left: 0;
+                        line-height: 60%;
+                        color: var(--color);
+                        opacity: 0.2;
+                    }
+                }
+            }
+        }
+    }
+
+    #commu{
+        text-align: center;
+        border: 1px solid var(--color);
+        padding: 30px 20px;
+
+        ul{
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: 30px;
+            margin-top: 50px;
+
+            li{
+                width: 48%;
+                @media (min-width: 768px) {
+                   width: 30%;
+                 }
+                img{
+                    width: 80%;
+                    aspect-ratio: 1/1;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-bottom: 20px;
+                }
+                h3, 
+                small{
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+     #meeting{
+        img{
+            width: 100%; 
+        }
+        @media (min-width: 992px) {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            img{
+                width: 30%;
+            }
+        }
+    }
+}
+
+footer{
+    color: white;
+    background-color: var(--color);
+    padding-bottom: 10px;
+    #go{
+        background-image:
+        linear-gradient(rgba(79, 17, 34, 0.3),rgba(79, 17, 34, 0.3)),
+        url("img/gandalf.jpg");
+        background-size: cover;
+        background-position-y: 30%;
+        text-align: center;
+        padding: 100px 0;
+        h2{
+            margin-bottom: 40px;
+        }
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        img{
+            width: 100px;
+        }
+        ul{
+            list-style: none;
+            a{
+                color: inherit;
+                text-decoration: none;
+            }
+        }
+    }
+}
